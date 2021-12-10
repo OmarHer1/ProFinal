@@ -64,10 +64,10 @@ namespace WindowsFormsAppCOMM_4B
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //aqui tengo que declarar una variable
-            //string leo_linea_de_comm = serialPort1.ReadLine();
-            //decimal numero = Convert.ToDecimal(leo_linea_de_comm);
-            //decimal voltjae = Math.Round((numero * 5) / 1023, 2);
-            //label_VOLTAGE.Text = voltjae.ToString();
+            string leo_linea_de_comm = serialPort1.ReadLine();
+            decimal numero = Convert.ToDecimal(leo_linea_de_comm);
+            decimal voltjae = Math.Round((numero * 5) / 1023, 2);
+            label_VOLTAGE.Text = voltjae.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
