@@ -47,8 +47,11 @@ namespace WindowsFormsAppCOMM_4B
             //garantizar puerto
             serialPort1.Open();
             CheckForIllegalCrossThreadCalls = false;
+            label_LCD_text.Text= "Preparando... \n hola 2oRenglon";
             if (serialPort1.IsOpen == true)
                 label_STATUS_PORT.Text = "acceso correcto";
+
+
             else
             {
                 label_STATUS_PORT.Text = "acceso denegado";
@@ -61,27 +64,33 @@ namespace WindowsFormsAppCOMM_4B
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //aqui tengo que declarar una variable
-            string leo_linea_de_comm = serialPort1.ReadLine();
-            double numero = Convert.ToDouble(leo_linea_de_comm);
-            double voltjae = Math.Round((numero * 5) / 1023, 2);
-            label_VOLTAGE.Text = voltjae.ToString();
+            //string leo_linea_de_comm = serialPort1.ReadLine();
+            //decimal numero = Convert.ToDecimal(leo_linea_de_comm);
+            //decimal voltjae = Math.Round((numero * 5) / 1023, 2);
+            //label_VOLTAGE.Text = voltjae.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             serialPort1.WriteLine("1");
-            label_VOLTAGE.Text = "0.02";
+            label_VOLTAGE.Text = "0.27";
+            label_LCD_text.Text = "caso 1";
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             serialPort1.WriteLine("2");
-            label_VOLTAGE.Text = "0.02";
+            label_VOLTAGE.Text = "0";
+            label_LCD_text.Text = "Pocion no valida";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             serialPort1.WriteLine("3");
+            label_VOLTAGE.Text = "0";
+            label_LCD_text.Text = "Pocion no valida";
         }
 
         private void port_select_label_Click(object sender, EventArgs e)
@@ -90,6 +99,16 @@ namespace WindowsFormsAppCOMM_4B
         }
 
         private void label_VOLTAGE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
